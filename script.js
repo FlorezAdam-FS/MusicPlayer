@@ -18,12 +18,12 @@ var SongList = [
   "pain.mp3",
 ];
 var PictureList = [
-  "jacob banks.jpeg",
-  "jon bellion.png",
-  "kirby.jpeg",
-  "trouble.jpg",
-  "yebba.jpeg",
-  "foy vance.jpeg",
+  "https://i1.sndcdn.com/avatars-000334778436-ijdn6o-t500x500.jpg",
+  "https://www.coupdemainmagazine.com/sites/default/files/styles/feature_header_image/public/feature/16221/head-16221-1575065731.jpg?itok=dEnrPdV8",
+  "https://i.ytimg.com/vi/bNEo25IY9gM/maxresdefault.jpg",
+  "http://images.genius.com/62778cea806168eca314fe7f855993dd.1000x1000x1.jpg",
+  "https://images.squarespace-cdn.com/content/v1/5a9b0fa0620b8564e4ffac6f/1520978909432-LH65HXCG9EJPIYQZDDQO/ke17ZwdGBToddI8pDm48kO_4ba_0ZmyVDztI1s1JFVJZw-zPPgdn4jUwVcJE1ZvWQUxwkmyExglNqGp0IvTJZamWLI2zvYWH8K3-s_4yszcp2ryTI0HqTOaaUohrI8PICagYbBMU432PyN5R4cw3Py1Wmak9RogInrz3WCVklOcKMshLAGzx4R3EDFOm1kBS/YEBBA+evergreen.jpg?format=1500w",
+  "https://www.irishtimes.com/polopoly_fs/1.1496411.1376667596!/image/image.jpg_gen/derivatives/ratio_1x1_w1200/image.jpg",
 ];
 var ArtistList = [
   "Jacob Banks",
@@ -43,7 +43,7 @@ var TitleList = [
 ];
 
 function backgroundChange(int) {
-  imgUrl = `url("./images/${PictureList[int]}")`;
+  imgUrl = `url("${PictureList[int]}")`;
 
   display.style.background = imgUrl;
   display.style.backgroundSize = "cover";
