@@ -1,13 +1,15 @@
+// Variables
+
 var play = document.getElementById("play");
 var display = document.getElementById("display");
 var album = document.getElementById("album");
 var mySound = document.getElementById("sound");
-var circle = document.getElementById("audio_circle");
-var bar = document.getElementById("audio_bar");
-var totalTime = document.getElementById("total_time");
-var currentTime = document.getElementById("current");
-var songList = document.getElementById("song_list");
-var List = [
+var albumTitle = document.getElementById("album_title");
+var artist = document.getElementById("artist");
+var i = 0;
+
+//Lists
+var SongList = [
   "slow up.mp3",
   "human.mp3",
   "vain.mp3",
@@ -15,7 +17,7 @@ var List = [
   "evergreen.mp3",
   "pain.mp3",
 ];
-var Picture = [
+var PictureList = [
   "jacob banks.jpeg",
   "jon bellion.png",
   "kirby.jpeg",
@@ -23,7 +25,7 @@ var Picture = [
   "yebba.jpeg",
   "foy vance.jpeg",
 ];
-var Artists = [
+var ArtistList = [
   "Jacob Banks",
   "Jon Bellion",
   "Kirby",
@@ -31,7 +33,7 @@ var Artists = [
   "Yebba",
   "Foy Vance",
 ];
-var Titles = [
+var TitleList = [
   "Slow Up",
   "Human",
   "Vain",
@@ -39,25 +41,16 @@ var Titles = [
   "Evergreen",
   "Pain Never Hurt Me Like Love",
 ];
-var albumTitle = document.getElementById("album_title");
-var artist = document.getElementById("artist");
-var fft;
-var pSong;
-var song = 0;
-
-var songToPlay;
-var fft;
-var particles = [];
 
 function backgroundChange(int) {
-  display.style.background = `url("./images/${Picture[int]}")`;
+  imgUrl = `url("./images/${PictureList[int]}")`;
 
+  display.style.background = imgUrl;
   display.style.backgroundSize = "cover";
   display.style.backgroundPosition = "center";
   display.style.backgroundRepeat = "no-repeat";
 
-  album.style.background = `url("./images/${Picture[int]}")`;
-
+  album.style.background = imgUrl;
   album.style.backgroundSize = "cover";
   album.style.backgroundPosition = "center";
   album.style.backgroundRepeat = "no-repeat";
@@ -66,49 +59,44 @@ function backgroundChange(int) {
 backgroundChange(0);
 
 function Next() {
-  if (song == List.length - 1) {
-    song = 0;
-  } else {
-    song += 1;
-  }
-  display.classList.add("active");
-  album.classList.add("rotate-image");
-
+  i == SongList.length - 1 ? (i = 0) : i++;
   SelectedSong();
 }
 
 function Previous() {
-  if (song == 0) {
-    song = List.length - 1;
-  } else {
-    song--;
-  }
-  display.classList.add("active");
-  album.classList.add("rotate-image");
-
+  i == 0 ? (i = SongList.length - 1) : i--;
   SelectedSong();
 }
 
 play.addEventListener("click", () => {
-  console.log(mySound.duration);
   if (play.name == "play-outline") {
-    display.classList.add("active");
-    album.classList.add("rotate-image");
+    addClass();
     play.name = "pause-outline";
     mySound.play();
   } else {
+    removeClass();
     play.name = "play-outline";
-    album.classList.remove("rotate-image");
     mySound.pause();
-    display.classList.remove("active");
   }
 });
 
 function SelectedSong() {
-  mySound.src = `./songs/${List[song]}`;
+  mySound.src = `./songs/${SongList[i]}`;
   mySound.autoplay = true;
   play.name = "pause-outline";
-  backgroundChange(song);
-  albumTitle.innerHTML = song + 1 + ". " + Titles[song];
-  artist.innerHTML = Artists[song];
+  albumTitle.innerHTML = i + 1 + ". " + TitleList[i];
+  artist.innerHTML = ArtistList[i];
+
+  backgroundChange(i);
+  addClass();
+}
+
+function addClass() {
+  display.classList.add("active");
+  album.classList.add("rotate-image");
+}
+
+function removeClass() {
+  display.classList.remove("active");
+  album.classList.remove("rotate-image");
 }
