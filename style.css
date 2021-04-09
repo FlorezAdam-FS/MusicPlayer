@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Avenir;
+}
+
+.album-info {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.info {
+  color: white;
+  /* margin-left: 10px; */
+  text-align: center;
+}
+.info h3 {
+  margin-bottom: 6px;
+}
+.info h6 {
+  color: rgba(255, 255, 255, 0.644);
+  font-weight: lighter;
+  margin-bottom: 10px;
+}
+.audio_player_container {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+  z-index: 2;
+  padding-bottom: 60px;
+}
+
+.audio_player_items {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+.album {
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
+  border-radius: 80px;
+  overflow: hidden;
+  position: relative;
+  transition: 0.4s linear;
+}
+
+.album img {
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.album .circle {
+  height: 10px;
+  width: 10px;
+  border-radius: 20px;
+  background-color: white;
+  z-index: 3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+canvas {
+  display: none;
+}
+
+button {
+  margin: 0 0.2rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s linear;
+  outline: none;
+  padding: 5px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: gray;
+}
+#wave {
+  height: 300px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+ion-icon {
+  font-size: 30px;
+  margin-bottom: -8px;
+  color: rgb(255, 255, 255);
+}
+
+.audio_display {
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 58%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* border-radius: 350px; */
+  color: white;
+  opacity: 0;
+  transition: 0.4s linear;
+  padding: 20px;
+}
+
+.active {
+  opacity: 1;
+  top: 0;
+  height: calc(100vh - 200px);
+  width: 100%;
+  transition: 0.4s ease-in-out;
+}
+
+.active #title {
+  opacity: 1;
+}
+
+.audio_bar {
+  margin-left: 138px;
+  height: 4px;
+  width: 150px;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.audio_circle {
+  height: 10px;
+  width: 10px;
+  border-radius: 25px;
+  background-color: white;
+}
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rotate-image {
+  transition: 0.4s linear;
+  box-shadow: 0px 0px 28px -10px rgba(0, 0, 0, 0.8);
+  animation: rotation 10s linear infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+#dropdown {
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#dropdown ion-icon {
+  font-size: 18px;
+}
+
+@media screen and (min-width: 550px) {
+  .active {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px 1px rgb(2, 50, 58);
+    opacity: 0.93;
+  }
+
+  .audio_player_container {
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  }
+  body {
+    height: 100vh;
+    background: radial-gradient(rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.8)),
+      url("./images/background.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  canvas {
+    display: block;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    height: 600px;
+    width: 600px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.6);
+  }
+}

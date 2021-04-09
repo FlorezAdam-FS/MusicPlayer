@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule=""
+      src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
+    ></script>
+  </head>
+  <body>
+    <div class="audio_player_container">
+      <div class="audio_player_items">
+        <div class="album-info">
+          <div id="album" class="album rotate-image">
+            <div class="circle"></div>
+          </div>
+          <div class="info">
+            <h3 id="album_title">1. Slow Up</h3>
+            <h6 id="artist">Jacob Banks</h6>
+          </div>
+        </div>
+        <div class="controls">
+          <button onclick="Previous()">
+            <ion-icon name="play-skip-back-outline"></ion-icon>
+          </button>
+          <button><ion-icon id="play" name="play-outline"></ion-icon></button>
+          <button onclick="Next()">
+            <ion-icon name="play-skip-forward-outline"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="display" class="audio_display active">
+      <audio id="sound" src="./songs/slow up.mp3" loop></audio>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/p5.min.js"
+      integrity="sha512-gQVBYBvfC+uyor5Teonjr9nmY1bN+DlOCezkhzg4ShpC5q81ogvFsr5IV4xXAj6HEtG7M1Pb2JCha97tVFItYQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.3.1/addons/p5.sound.js"
+      integrity="sha512-KxzVm+IqxNNq0+SzT/zzd5PHxY4LPrN+v5gZJ6+JKqjeU3Cr4y/djAg5eNlKDWurn1SeKZpql/yeOMWblMSzOg=="
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js"></script>
+    <script src="./p5/empty-example/sketch.js"></script>
+  </body>
+</html>
