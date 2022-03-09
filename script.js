@@ -18,7 +18,7 @@ var SongList = [
   "pain.mp3",
 ];
 var PictureList = [
-  "https://i1.sndcdn.com/avatars-000334778436-ijdn6o-t500x500.jpg",
+  "https://media.gq-magazine.co.uk/photos/5d139ae9533a2368ecc625db/4:3/w_1704,h_1278,c_limit/jacob-banks-01-gq-9mar18_rex_b.jpg",
   "https://www.coupdemainmagazine.com/sites/default/files/styles/feature_header_image/public/feature/16221/head-16221-1575065731.jpg?itok=dEnrPdV8",
   "https://i.ytimg.com/vi/bNEo25IY9gM/maxresdefault.jpg",
   "http://images.genius.com/62778cea806168eca314fe7f855993dd.1000x1000x1.jpg",
